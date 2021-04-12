@@ -31,7 +31,7 @@ function displayCards(){
     document.querySelector('#cards').appendChild(col)
   }
 
-    document.querySelector('.delete-card').forEach(function(b){
+    document.querySelectorAll('.delete-card').forEach(function(b){
       b.onclick = function(event){
         let cards = JSON.parse(localStorage.getItem('cards') || '[]')
         let ndx = -1
@@ -68,21 +68,21 @@ function displayCards(){
   
     this.reset()
   
-    document.querySelect('#cards').classList.remove('d-none')
-    document.querySelect('#myForm').classList.add('d-none')
+    document.querySelector('#cards').classList.remove('d-none')
+    document.querySelector('#myForm').classList.add('d-none')
   
     displayCards()
   
   }
   
   document.querySelector('#new_card').onclick = function(){
-    document.querySelect('#myForm').classList.remove('d-none')
-    document.querySelect('#cards').classList.add('d-none')
+    document.querySelector('#myForm').classList.remove('d-none')
+    document.querySelector('#cards').classList.add('d-none')
   }
   
   document.forms[0].querySelector('[type="button"]').onclick = function(e){
-    document.querySelect('#cards').classList.remove('d-none')
-    document.querySelect('#myForm').classList.add('d-none')
+    document.querySelector('#cards').classList.remove('d-none')
+    document.querySelector('#myForm').classList.add('d-none')
 
     if(e.target.classList.contains('cancel-form')){
       e.target.closest('form').reset()
