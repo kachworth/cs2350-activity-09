@@ -1,12 +1,28 @@
 /* TODO */
 @import "~bootstrap/dist/css/bootstrap.css";
 
+body{
+  background-image: url('https://www.onlygfx.com/wp-content/uploads/2016/03/old-paper-holes-3.jpg');
+}
+
 .jumbotron{
-    background-image: url('https://images.unsplash.com/photo-1574970324184-746b18c8bd49?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-    background-position: 0 -300px;
+  background-image: url('https://images.unsplash.com/photo-1529148482759-b35b25c5f217?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+  background-position: center;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  font-weight: bolder;
+}
+  
+footer{
+    background: black;
     color: white;
   }
-  
-  footer{
-    background: black; 
+
+h3{
+    font-family: Arial;
+    font-weight: bold;
+  }
+
+h4{
+    font-weight: lighter;
   }

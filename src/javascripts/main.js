@@ -11,18 +11,19 @@ import 'bootstrap'
 
 function displayCard(c){
     return `
-    <div class="card" data-title="${c.title}">
+    <div class="card mb-3" data-title="${c.title}">
       <img class="card-img-top" src="${c.poster}" alt="...">
       <div class="card-body">
-        <h5 class="card-title">${c.title}</h5>
+        <h5 class="card-title text-decoration-underline">${c.title}</h5>
         <p class="card-text">${c.description}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-        <button class="btn btn-danger delete-card">Delete</button>
+        <p class="card-text">Written by ${c.author}</p>
+        <p class="card-text">${c.year}</p>
+        <button class="btn btn-danger delete-card text-center">Delete</button>
     </div>`
   }
   
 function displayCards(){
-  let cards = JSON.parse(localStorage.getItem('cards') || '[]')
+  let cards = JSON.parse(localStorage.getItem('suggested_books') || '[]')
   document.querySelector('#cards').innerHTML = ''
   for(let c of cards){
     let col = document.createElement('div')
@@ -33,7 +34,7 @@ function displayCards(){
 
     document.querySelectorAll('.delete-card').forEach(function(b){
       b.onclick = function(event){
-        let cards = JSON.parse(localStorage.getItem('cards') || '[]')
+        let cards = JSON.parse(localStorage.getItem('suggested_books') || '[]')
         let ndx = -1
         for(let i in cards){
           if(cards[i].title === event.target.closest('.card').dataset.title){
@@ -44,7 +45,7 @@ function displayCards(){
 
       if(ndx != -1){
         cards.splice(ndx, 1)
-        localStorage.setItem('cards', JSON.stringify(cards))
+        localStorage.setItem('suggested_books', JSON.stringify(cards))
         location.reload()
       }
     }
@@ -57,13 +58,15 @@ function displayCards(){
     let t = document.querySelector('#title').value
     let d = document.querySelector('#description').value
     let p = document.querySelector('#poster').value
+    let a = document.querySelector('#author').value
+    let y = document.querySelector('#year').value
   
-    let cards = JSON.parse(localStorage.getItem('cards') || '[]')
+    let cards = JSON.parse(localStorage.getItem('suggested_books') || '[]')
   
-    if(t && d && p){
-      let card = {title: t, description: d, poster: p}
+    if(t && d && p && a && y){
+      let card = {title: t, description: d, poster: p, author: a, year: y}
       cards.push(card)
-      localStorage.setItem('cards', JSON.stringify(cards))
+      localStorage.setItem('suggested_books', JSON.stringify(cards))
     }
   
     this.reset()
